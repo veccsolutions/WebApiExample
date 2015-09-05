@@ -2,7 +2,11 @@
   "locked": false,
   "version": 1,
   "targets": {
-    "DNX,Version=v4.5.1": {},
+    "DNX,Version=v4.5.1": {
+      "WebApiExample.Contracts/1.0.0": {
+        "type": "project"
+      }
+    },
     "DNXCore,Version=v5.0": {
       "Microsoft.CSharp/4.0.1-beta-23225": {
         "type": "package",
@@ -342,10 +346,24 @@
         "runtime": {
           "lib/DNXCore50/System.Threading.Tasks.dll": {}
         }
+      },
+      "WebApiExample.Contracts/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23225",
+          "System.Collections": "4.0.11-beta-23225",
+          "System.Linq": "4.0.1-beta-23225",
+          "System.Runtime": "4.0.21-beta-23225",
+          "System.Threading": "4.0.11-beta-23225"
+        }
       }
     }
   },
   "libraries": {
+    "WebApiExample.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../WebApiExample.Contracts/project.json"
+    },
     "Microsoft.CSharp/4.0.1-beta-23225": {
       "type": "package",
       "serviceable": true,
@@ -1141,7 +1159,9 @@
     }
   },
   "projectFileDependencyGroups": {
-    "": [],
+    "": [
+      "WebApiExample.Contracts >= 1.0.0"
+    ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": [
       "Microsoft.CSharp >= 4.0.1-beta-23225",
