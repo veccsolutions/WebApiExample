@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
+using Microsoft.AspNet.Mvc;
 using Microsoft.Framework.DependencyInjection;
+using Newtonsoft.Json;
 
 namespace WebApiExample.ApiApp
 {
@@ -22,6 +24,13 @@ namespace WebApiExample.ApiApp
             // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
             // You will also need to add the Microsoft.AspNet.Mvc.WebApiCompatShim package to the 'dependencies' section of project.json.
             // services.AddWebApiConventions();
+
+            services.Configure<MvcJsonOptions>((options) =>
+            {
+                options.SerializerSettings.MissingMemberHandling = MissingMemberHandling.Ignore;
+                options.SerializerSettings.MaxDepth = 32;
+                options.SerializerSettings.TypeNameHandling = TypeNameHandling.Auto;
+            });
         }
 
         // Configure is called after ConfigureServices is called.
