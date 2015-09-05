@@ -1,9 +1,6 @@
 namespace WebApiExample.Contracts
 {
-    public class FilterBase
+    public abstract class FilterBase
     {
-        public FilterBase()
-        {
-        }
     }
 }
